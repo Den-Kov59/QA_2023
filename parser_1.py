@@ -13,9 +13,10 @@ def parser(result):
                 transfer = float(line[n-1])
             elif(line[n] == 'Mbits/sec'):
                 bandwith = float(line[n-1])
-        parsed_result.append({
-            'Interval': interval,
-            'Transfer': transfer,
-            'Bitrate': bandwith
-        })
+        if transfer>0:
+            parsed_result.append({
+                'Interval' : interval,
+                'Transfer' : transfer,
+                'Bitrate': bandwith
+            })
     return parsed_result
